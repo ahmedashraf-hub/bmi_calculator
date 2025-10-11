@@ -3,15 +3,10 @@ import 'package:bmi_calculator/core/app_styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({
-    super.key,
-    required this.title,
-    required this.routePath,
-    this.onPressed,
-  });
+  const CustomButton({super.key, required this.title, this.onPressed});
 
   final String title;
-  final String routePath;
+
   final VoidCallback? onPressed;
 
   @override
@@ -21,18 +16,15 @@ class CustomButton extends StatelessWidget {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 8),
-          backgroundColor: AppColors.primaryColor,
+          backgroundColor: AppColors.greenColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(25),
           ),
         ),
-        onPressed: onPressed ?? () => Navigator.pushNamed(context, routePath),
+        onPressed: onPressed,
         child: Text(
           title,
-          style: AppStyles.semiBold32.copyWith(
-            color: Colors.white,
-            fontSize: 32,
-          ),
+          style: AppStyles.semiBold32.copyWith(color: Colors.white),
         ),
       ),
     );

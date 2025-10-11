@@ -1,4 +1,3 @@
-import 'package:bmi_calculator/core/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AppStyles {
@@ -21,13 +20,11 @@ class AppStyles {
     fontSize: 48,
     fontWeight: FontWeight.w700,
     fontFamily: 'Roboto',
-    color: AppColors.thirdColor,
   );
   static const TextStyle bold64 = TextStyle(
     fontSize: 64,
     fontWeight: FontWeight.w700,
     fontFamily: 'Roboto',
-    color: AppColors.greenBlackColor,
   );
   static const TextStyle semiBold12 = TextStyle(
     fontSize: 12,
@@ -39,12 +36,10 @@ class AppStyles {
     fontSize: 20,
     fontWeight: FontWeight.w600,
     fontFamily: 'Roboto',
-    color: AppColors.greenBlackColor,
   );
   static const TextStyle semiBold14 = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w600,
     fontFamily: 'Roboto',
-    color: AppColors.greenBlackColor,
   );
 }

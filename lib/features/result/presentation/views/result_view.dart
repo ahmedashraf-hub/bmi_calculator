@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/features/result/presentation/widgets/result_view_body.dart';
 import 'package:flutter/material.dart';
 
 class ResultView extends StatelessWidget {
@@ -5,6 +6,6 @@ class ResultView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(body: ResultViewBody());
   }
 }

@@ -2,8 +2,8 @@ import 'package:bmi_calculator/core/app_colors.dart';
 import 'package:bmi_calculator/core/app_styles.dart';
 import 'package:flutter/material.dart';
 
-class BuildTitleHeader extends StatelessWidget {
-  const BuildTitleHeader({super.key});
+class CustomHeaderTitle extends StatelessWidget {
+  const CustomHeaderTitle({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,18 +12,12 @@ class BuildTitleHeader extends StatelessWidget {
       children: [
         Text(
           'BMI ',
-          style: AppStyles.semiBold32.copyWith(
-            color: AppColors.secondaryColor,
-            fontSize: 32,
-          ),
+          style: AppStyles.semiBold32.copyWith(color: AppColors.orangeColor),
         ),
 
         Text(
           'Calculator',
-          style: AppStyles.semiBold32.copyWith(
-            color: AppColors.primaryColor,
-            fontSize: 32,
-          ),
+          style: AppStyles.semiBold32.copyWith(color: AppColors.greenColor),
         ),
       ],
     );
