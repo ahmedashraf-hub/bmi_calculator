@@ -64,10 +64,6 @@ class MeasurementsViewBody extends StatelessWidget {
             child: CustomButton(
               title: 'Calculate',
               onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => ResultView()),
-                // );
                 showDialog(
                   context: context,
                   barrierDismissible: true,
