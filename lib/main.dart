@@ -1,8 +1,12 @@
 import 'package:bmi_calculator/features/Home/presentation/views/home_view.dart';
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const BMIAPP());
+  runApp(
+    DevicePreview(enabled: !kReleaseMode, builder: (context) => const BMIAPP()),
+  );
 }
 
 class BMIAPP extends StatelessWidget {
@@ -13,7 +17,29 @@ class BMIAPP extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Roboto'),
-      home: HomeView(),
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
+      home: const HomeView(),
     );
   }
 }
+
+// import 'package:bmi_calculator/features/Home/presentation/views/home_view.dart';
+// import 'package:flutter/material.dart';
+
+// void main() {
+//   runApp(const BMIAPP());
+// }
+
+// class BMIAPP extends StatelessWidget {
+//   const BMIAPP({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       theme: ThemeData(fontFamily: 'Roboto'),
+//       home: HomeView(),
+//     );
+//   }
+// }
