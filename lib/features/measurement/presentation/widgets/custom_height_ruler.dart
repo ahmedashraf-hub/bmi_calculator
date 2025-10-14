@@ -8,16 +8,16 @@ class CustomHeightRuler extends StatefulWidget {
   const CustomHeightRuler({
     super.key,
     required this.initialHeight,
-    required Null Function(dynamic value) onValueChanged,
+    required this.onValueChanged,
   });
-  final double initialHeight;
+  final int initialHeight;
+  final void Function(num) onValueChanged;
   @override
   State<CustomHeightRuler> createState() => _CustomHeightRulerState();
 }
 
 class _CustomHeightRulerState extends State<CustomHeightRuler> {
   final RulerPickerController controller = RulerPickerController(value: 170);
-  double _currentHeight = 170;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class _CustomHeightRulerState extends State<CustomHeightRuler> {
             style: AppStyles.medium16.copyWith(color: AppColors.greyLightColor),
           ),
           Text(
-            _currentHeight.toStringAsFixed(0),
+            widget.initialHeight.toStringAsFixed(0),
             style: AppStyles.semiBold48.copyWith(
               color: AppColors.secondaryColor,
               fontSize: 48,
@@ -90,11 +90,7 @@ class _CustomHeightRulerState extends State<CustomHeightRuler> {
                     height: 40,
                     rulerBackgroundColor: Colors.transparent,
                     rulerMarginTop: 0,
-                    onValueChanged: (value) {
-                      setState(() {
-                        _currentHeight = value.toDouble();
-                      });
-                    },
+                    onValueChanged: widget.onValueChanged,
                     onBuildRulerScaleText: (index, rulerScaleValue) => '',
                   ),
                 ),

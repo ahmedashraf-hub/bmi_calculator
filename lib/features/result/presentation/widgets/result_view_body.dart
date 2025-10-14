@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:bmi_calculator/core/app_colors.dart';
 import 'package:bmi_calculator/core/app_styles.dart';
 import 'package:bmi_calculator/core/widgets/custom_button.dart';
@@ -5,7 +7,17 @@ import 'package:bmi_calculator/features/Home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 
 class ResultViewBody extends StatelessWidget {
-  const ResultViewBody({super.key});
+  const ResultViewBody({
+    super.key,
+    required this.weight,
+    required this.age,
+    required this.height,
+    required this.gender,
+  });
+  final int weight;
+  final int age;
+  final int height;
+  final String gender;
 
   @override
   Widget build(BuildContext context) {
@@ -36,14 +48,13 @@ class ResultViewBody extends StatelessWidget {
                   style: AppStyles.medium16.copyWith(fontSize: 16),
                 ),
                 Text(
-                  '22.5',
+                  '${double.parse((weight / pow(height / 100, 2)).toStringAsFixed(2))}',
                   style: AppStyles.bold64.copyWith(
                     color: AppColors.primaryColor,
                   ),
                 ),
                 Stack(
-                  clipBehavior:
-                      Clip.none, // Important to allow icon to overflow
+                  clipBehavior: Clip.none,
                   children: [
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 5, vertical: 2),
@@ -78,7 +89,7 @@ class ResultViewBody extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          '65 kg',
+                          '$weight kg',
                           style: AppStyles.semiBold20.copyWith(
                             color: AppColors.primaryColor,
                             fontFamily: 'Lato',
@@ -98,7 +109,7 @@ class ResultViewBody extends StatelessWidget {
                     Column(
                       children: [
                         Text(
-                          '170 cm',
+                          '$height cm',
                           style: AppStyles.semiBold20.copyWith(
                             color: AppColors.primaryColor,
                           ),
@@ -114,7 +125,7 @@ class ResultViewBody extends StatelessWidget {
                     Column(
                       children: [
                         Text(
-                          '26',
+                          '$age',
                           style: AppStyles.semiBold20.copyWith(
                             color: AppColors.primaryColor,
                           ),
@@ -130,7 +141,7 @@ class ResultViewBody extends StatelessWidget {
                     Column(
                       children: [
                         Text(
-                          'male',
+                          gender,
                           style: AppStyles.semiBold20.copyWith(
                             color: AppColors.primaryColor,
                           ),
@@ -150,7 +161,7 @@ class ResultViewBody extends StatelessWidget {
                   style: AppStyles.medium16.copyWith(fontSize: 16),
                 ),
                 Text(
-                  '53.5 kg - 72.3 kg',
+                  '${double.parse((18.5 * pow(height / 100, 2)).toStringAsFixed(2))} kg - ${double.parse((24.9 * pow(height / 100, 2)).toStringAsFixed(2))} kg',
                   style: AppStyles.medium16.copyWith(
                     fontSize: 16,
                     color: AppColors.primaryColor,

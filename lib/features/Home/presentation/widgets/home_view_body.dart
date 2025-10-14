@@ -21,48 +21,50 @@ class HomeViewBody extends StatelessWidget {
         child: BlocBuilder<GenderCubit, GenderState>(
           builder: (context, state) {
             final cubit = context.read<GenderCubit>();
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                const CustomHeaderTitle(),
-                Text('Please choose your gender', style: AppStyles.medium24),
-                CustomGenderCard(
-                  backColor: AppColors.greenLightColor,
-                  title: 'Male',
-                  titleColor: AppColors.primaryColor,
-                  imagePath: 'assets/images/boy.png',
-                  genderIcon: Icons.male,
-                  iconColor: AppColors.blueBlackColor,
-                  isSelected: state.selectedGender == 'Male',
-                  onTap: () => cubit.selectGender('Male'),
-                ),
-                CustomGenderCard(
-                  backColor: AppColors.orangeLightColor,
-                  title: 'Female',
-                  titleColor: AppColors.secondaryColor,
-                  imagePath: 'assets/images/girl.png',
-                  genderIcon: Icons.female,
-                  iconColor: AppColors.pinkLightColor,
-                  isSelected: state.selectedGender == 'Female',
-                  onTap: () => cubit.selectGender('Female'),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                  child: CustomButton(
-                    title: 'Continue',
-                    onPressed: () {
-                      final selectedGender = cubit.state.selectedGender;
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              MeasurementsView(gender: selectedGender),
-                        ),
-                      );
-                    },
+            return SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  const CustomHeaderTitle(),
+                  Text('Please choose your gender', style: AppStyles.medium24),
+                  CustomGenderCard(
+                    backColor: AppColors.greenLightColor,
+                    title: 'Male',
+                    titleColor: AppColors.primaryColor,
+                    imagePath: 'assets/images/boy.png',
+                    genderIcon: Icons.male,
+                    iconColor: AppColors.blueBlackColor,
+                    isSelected: state.selectedGender == 'Male',
+                    onTap: () => cubit.selectGender('Male'),
                   ),
-                ),
-              ],
+                  CustomGenderCard(
+                    backColor: AppColors.orangeLightColor,
+                    title: 'Female',
+                    titleColor: AppColors.secondaryColor,
+                    imagePath: 'assets/images/girl.png',
+                    genderIcon: Icons.female,
+                    iconColor: AppColors.pinkLightColor,
+                    isSelected: state.selectedGender == 'Female',
+                    onTap: () => cubit.selectGender('Female'),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    child: CustomButton(
+                      title: 'Continue',
+                      onPressed: () {
+                        final selectedGender = cubit.state.selectedGender;
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                MeasurementsView(gender: selectedGender),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
             );
           },
         ),

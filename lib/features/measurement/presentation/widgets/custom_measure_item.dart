@@ -7,10 +7,15 @@ class CustomMeasureItem extends StatelessWidget {
     super.key,
     required this.title,
     required this.value,
+    this.add,
+    this.decrement,
   });
 
   final String title;
-  final double value;
+  final int value;
+  final void Function()? add;
+  final void Function()? decrement;
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -46,7 +51,8 @@ class CustomMeasureItem extends StatelessWidget {
                       backgroundColor: Colors.white,
                       elevation: 2,
                     ),
-                    onPressed: () {},
+                    onPressed: decrement,
+
                     child: Icon(
                       Icons.remove,
                       size: 16,
@@ -60,7 +66,7 @@ class CustomMeasureItem extends StatelessWidget {
                       backgroundColor: Colors.white,
                       elevation: 2,
                     ),
-                    onPressed: () {},
+                    onPressed: add,
                     child: Icon(
                       Icons.add,
                       size: 16,
