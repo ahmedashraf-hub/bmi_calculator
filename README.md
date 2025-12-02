@@ -15,9 +15,9 @@ A beautiful and intuitive BMI (Body Mass Index) Calculator built with Flutter. T
 ## Screenshots
 
 <p align="center">
-  <img src="assets/images/screenshots/home_screen.png" width="250" alt="Home Screen - Gender Selection"/>
-  <img src="assets/images/screenshots/measurement_screen.png" width="250" alt="Measurement Screen"/>
-  <img src="assets/images/screenshots/result_screen.png" width="250" alt="Result Screen"/>
+  <img src="assets/images/screenshoots/WhatsApp Image 2025-12-02 at 21.43.17 (1).jpeg" width="250" alt="Home Screen - Gender Selection"/>
+  <img src="assets/images/screenshoots/WhatsApp Image 2025-12-02 at 21.43.17.jpeg" width="250" alt="Measurement Screen"/>
+  <img src="assets/images/screenshoots/WhatsApp Image 2025-12-02 at 21.43.16.jpeg" width="250" alt="Result Screen"/>
 </p>
 
 ### Features Showcase
